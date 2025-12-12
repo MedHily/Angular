@@ -1,0 +1,8 @@
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-dialog-actions {
+  padding: 0 24px 24px;
+}

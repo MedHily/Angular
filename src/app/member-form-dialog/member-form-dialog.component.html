@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit Member' : 'Create New Member' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="memberForm">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter member name">
+      <mat-error *ngIf="memberForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('name')?.hasError('minlength')">
+        Name must be at least 2 characters
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Age</mat-label>
+      <input matInput type="number" formControlName="age" placeholder="Enter age">
+      <mat-error *ngIf="memberForm.get('age')?.hasError('required')">
+        Age is required
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('age')?.hasError('min')">
+        Age must be at least 1
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('age')?.hasError('max')">
+        Age cannot exceed 150
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city" placeholder="Enter city">
+      <mat-error *ngIf="memberForm.get('city')?.hasError('required')">
+        City is required
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('city')?.hasError('minlength')">
+        City must be at least 2 characters
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!memberForm.valid">
+    {{ isEdit ? 'Update' : 'Create' }}
+  </button>
+</mat-dialog-actions>

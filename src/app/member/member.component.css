@@ -1,0 +1,257 @@
+/* Container styling */
+:host {
+  display: block;
+  padding: 16px;
+  margin: 0;
+}
+
+.member-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 20px;
+}
+
+.loading-container p {
+  color: #667eea;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Table Section */
+.table-section {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.button-container button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+  color: #999;
+}
+
+.empty-state mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  color: #ddd;
+}
+
+.empty-state p {
+  font-size: 16px;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.mat-mdc-table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mat-mdc-header-cell {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 18px 16px;
+  text-align: left;
+  border-bottom: none;
+  line-height: 1.4;
+}
+
+.mat-mdc-cell {
+  padding: 18px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.mat-mdc-row {
+  transition: background-color 0.2s ease;
+}
+
+.mat-mdc-row:hover {
+  background-color: #f8f9ff;
+}
+
+.mat-mdc-row:last-child .mat-mdc-cell {
+  border-bottom: none;
+}
+
+/* Action column styling */
+ng-container[matColumnDef="actions"] .mat-mdc-header-cell,
+ng-container[matColumnDef="actions"] .mat-mdc-cell {
+  text-align: center;
+  padding: 18px 8px;
+}
+
+/* Action buttons styling */
+button[mat-icon-button] {
+  transition: all 0.3s ease;
+  margin: 0 4px;
+  min-width: auto;
+}
+
+button[mat-icon-button]:hover {
+  transform: scale(1.15);
+}
+
+button[mat-icon-button] mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+
+/* Edit button styling */
+button[mat-icon-button]:not([color="warn"]) {
+  color: #667eea;
+}
+
+button[mat-icon-button]:not([color="warn"]):hover {
+  background-color: rgba(102, 126, 234, 0.12);
+}
+
+/* Delete button styling */
+button[mat-icon-button][color="warn"] {
+  color: #ff6b6b;
+}
+
+button[mat-icon-button][color="warn"]:hover {
+  background-color: rgba(255, 107, 107, 0.12);
+}
+
+/* Responsive design - Tablet */
+@media (max-width: 1024px) {
+  :host {
+    padding: 12px;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+
+  button[mat-icon-button] {
+    margin: 0 2px;
+  }
+}
+
+/* Responsive design - Mobile */
+@media (max-width: 768px) {
+  :host {
+    padding: 10px;
+  }
+
+  .table-container {
+    border-radius: 8px;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
+  ng-container[matColumnDef="id"] .mat-mdc-cell,
+  ng-container[matColumnDef="id"] .mat-mdc-header-cell {
+    padding: 12px 8px;
+  }
+
+  button[mat-icon-button] {
+    margin: 0 2px;
+    padding: 8px;
+  }
+
+  button[mat-icon-button] mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Responsive design - Small devices */
+@media (max-width: 480px) {
+  :host {
+    padding: 8px;
+  }
+
+  .mat-mdc-cell,
+  .mat-mdc-header-cell {
+    padding: 10px 6px;
+    font-size: 11px;
+  }
+
+  ng-container[matColumnDef="age"] .mat-mdc-cell,
+  ng-container[matColumnDef="age"] .mat-mdc-header-cell,
+  ng-container[matColumnDef="city"] .mat-mdc-cell,
+  ng-container[matColumnDef="city"] .mat-mdc-header-cell {
+    padding: 10px 4px;
+  }
+
+  button[mat-icon-button] {
+    margin: 0 1px;
+    padding: 6px;
+  }
+
+  button[mat-icon-button] mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
